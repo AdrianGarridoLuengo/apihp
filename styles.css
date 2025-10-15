@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+#character {
+    text-align: center;
+    /* centra texto e imagen */
+    margin-bottom: 20px;
+}
+
+#character img {
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+#character h2 {
+    margin: 10px 0 5px;
+    font-size: 1.5rem;
+}
+
+#character p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+}
+
+#expelliarmus {
+    padding: 12px 28px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1b1204;
+    background: linear-gradient(90deg, #f5e6a2, #caa240);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* ✨ Brillo animado que cruza el botón */
+#expelliarmus::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.6),
+            transparent);
+    transform: skewX(-25deg);
+}
+
+/* Activar el brillo al pasar el ratón */
+#expelliarmus:hover::before {
+    animation: shine 1.5s ease;
+}
+
+@keyframes shine {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+/* Pequeña animación de pulsación y cambio de color */
+#expelliarmus:active {
+    transform: scale(0.96);
+    background: linear-gradient(90deg, #ffdd77, #ff9933);
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.6);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: .5rem 2rem;
+    background-color: rgba(19, 18, 18, 0.568);
+
+    a {
+        color: white;
+    }
+}
+
+.hp-logo {
+    position: relative;
+    display: inline-block;
+}
+
+.hp-title {
+    font: 900 clamp(1.8rem, 3.2vw, 2.6rem)/1.1 "Georgia", "Times New Roman", serif;
+    letter-spacing: 0.5px;
+    background: linear-gradient(120deg,
+            #b98a1c 0%,
+            #f5e6a2 20%,
+            #caa240 40%,
+            #f5e6a2 60%,
+            #b98a1c 80%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 2.5s linear infinite;
+    display: inline-block;
+}
+
+/* El mismo efecto de brillo que tu botón */
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+
+nav {
+    align-items: center;
+    gap: 1rem;
+    display: flex;
+}
+
+footer {
+    background-color: rgba(73, 70, 70, 0.226);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
